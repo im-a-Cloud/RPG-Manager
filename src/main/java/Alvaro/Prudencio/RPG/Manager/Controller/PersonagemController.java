@@ -1,8 +1,9 @@
-package Alvaro.Prudencio.RPG.Manager;
+package Alvaro.Prudencio.RPG.Manager.Controller;
 
 
+import Alvaro.Prudencio.RPG.Manager.Entidades.Personagem;
+import Alvaro.Prudencio.RPG.Manager.Service.PersonagemService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -29,7 +30,7 @@ public class PersonagemController {
     public void apagarPersonagem(@PathVariable Long id){
         personagemService.apagarPersonagem(id);
     }
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public Personagem buscarPersonagemPorId(@PathVariable Long id){
         return personagemService.buscarPersonagemPorId(id);
     }

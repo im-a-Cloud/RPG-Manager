@@ -1,4 +1,4 @@
-package Alvaro.Prudencio.RPG.Manager;
+package Alvaro.Prudencio.RPG.Manager.Entidades;
 
 
 import jakarta.persistence.*;

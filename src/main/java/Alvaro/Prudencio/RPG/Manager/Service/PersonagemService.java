@@ -1,5 +1,7 @@
-package Alvaro.Prudencio.RPG.Manager;
+package Alvaro.Prudencio.RPG.Manager.Service;
 
+import Alvaro.Prudencio.RPG.Manager.Entidades.Personagem;
+import Alvaro.Prudencio.RPG.Manager.Repository.PersonagemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
