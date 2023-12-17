@@ -28,8 +28,8 @@ public class PersonagemController {
         return personagemService.atualizarPersonagem(id, personagem);
     }
     @DeleteMapping("/{id}")
-    public void apagarPersonagem(@PathVariable Long id){
-        personagemService.apagarPersonagem(id);
+    public void apagarPersonagem(@PathVariable Long idPersonagem){
+        personagemService.apagarPersonagem(idPersonagem);
     }
     @GetMapping("/{id}")
     public Personagem buscarPersonagemPorId(@PathVariable Long id){

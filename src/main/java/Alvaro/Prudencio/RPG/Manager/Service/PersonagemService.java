@@ -27,8 +27,8 @@ public class PersonagemService {
     public void apagarPersonagem(Long idPersonagem){
         personagemRepository.deleteById(idPersonagem);
     }
-    public Personagem buscarPersonagemPorId(Long id){
-        return personagemRepository.findById(id).orElse(null);
+    public Personagem buscarPersonagemPorId(Long idPersonagem){
+        return personagemRepository.findById(idPersonagem).orElse(null);
     }
     public List<Personagem> buscarPersonagemPorSubstring(String substrinNomePersonagem){
         return personagemRepository.findByNomePersonagemContaining(substrinNomePersonagem);
