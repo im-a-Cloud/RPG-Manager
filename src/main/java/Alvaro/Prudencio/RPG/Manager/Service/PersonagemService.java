@@ -30,5 +30,7 @@ public class PersonagemService {
     public Personagem buscarPersonagemPorId(Long id){
         return personagemRepository.findById(id).orElse(null);
     }
-
+    public List<Personagem> buscarPersonagemPorSubstring(String substrinNomePersonagem){
+        return personagemRepository.findByNomePersonagemContaining(substrinNomePersonagem);
+    }
 }

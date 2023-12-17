@@ -3,6 +3,7 @@ package Alvaro.Prudencio.RPG.Manager.Controller;
 
 import Alvaro.Prudencio.RPG.Manager.Entidades.Personagem;
 import Alvaro.Prudencio.RPG.Manager.Service.PersonagemService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -33,6 +34,15 @@ public class PersonagemController {
     @GetMapping("/{id}")
     public Personagem buscarPersonagemPorId(@PathVariable Long id){
         return personagemService.buscarPersonagemPorId(id);
+    }
+    @GetMapping("/BuscarPersonagemPorNome/{substringPersonagem}")
+    public ResponseEntity<List<Personagem>> buscarPersonagemPorSubstring(@PathVariable String substringPersonagem){
+        List<Personagem> listaPersonagensCorrespondentes = personagemService.buscarPersonagemPorSubstring(substringPersonagem);
+        if (!listaPersonagensCorrespondentes.isEmpty()){
+            return ResponseEntity.ok(listaPersonagensCorrespondentes);
+        }else{
+            return ResponseEntity.notFound().build();
+        }
     }
 }
 

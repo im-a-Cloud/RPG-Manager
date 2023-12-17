@@ -110,4 +110,7 @@ public interface PersonagemRepository extends JpaRepository<Personagem, Long> {
 
     @Override
     <S extends Personagem, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction);
+    
+    List<Personagem> findByNomePersonagemContaining(String nomePersonagem);
+
 }
