@@ -27,7 +27,4 @@ public class ItemService {
     public List<Item> buscarItemPorNome(String susbtringItem){
         return itemRepository.findByNomeItemContaining(susbtringItem);
     }
-    /*public List<Item> buscarItemPorRaridade(String raridadeItem){
-        return itemRepository.findByRariradeItem(raridadeItem);
-    }*/
 }
