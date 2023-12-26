@@ -3,6 +3,9 @@ package Alvaro.Prudencio.RPG.Manager.Entidades;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table (name = "tb_Personagem")
 public class Personagem {
@@ -11,6 +14,17 @@ public class Personagem {
     private long idPersonagem;
     private String nomePersonagem;
     private int nivelPersonagem;
+
+    @OneToMany(mappedBy = "personagem", cascade = CascadeType.ALL)
+    private List<Habilidade> habilidadesPersonagem = new ArrayList<>();
+
+    public List<Habilidade> getHabilidadesPersonagem() {
+        return habilidadesPersonagem;
+    }
+
+    public void setHabilidadesPersonagem(List<Habilidade> habilidadesPersonagem) {
+        this.habilidadesPersonagem = habilidadesPersonagem;
+    }
 
     public long getIdPersonagem() {
         return idPersonagem;
