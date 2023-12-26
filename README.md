@@ -14,9 +14,15 @@ Changelog
 -Creation of the habilidade(feats) entity and methods, all working
 -Creation of the magia(spell) entity and methods, all methods except findById are working
 
+26/12/2023
+-MERRY CHRISTMAS
+-Now Personagens(Characters) can have Habilidades(feats), you can add and deleting them by providing the ID of the character and the feat ID, the same logic will be used to Items and Magias(Spells)
+
 
 TODO
 -Data persistence
 -Rearrange the tables row order
 -Upgrade the Personagem entity with more methods and attributes
 -Relation between the entities
+-Make a function where you can add feats and spells by name and the application will convert in ID then add
+-Validate some relationships, for example a pure barbarian can't have a lv 9 spell or a wizard feat, etc
