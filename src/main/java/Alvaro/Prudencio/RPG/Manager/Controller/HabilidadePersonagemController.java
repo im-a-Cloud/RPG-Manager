@@ -22,7 +22,7 @@ public class HabilidadePersonagemController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Habilidade>> listarItensDoInventario(@PathVariable Long idPersonagem) {
+    public ResponseEntity<List<Habilidade>> listarHabilidadesPersonagem(@PathVariable Long idPersonagem) {
         Personagem personagem = personagemRepository.findById(idPersonagem)
                 .orElseThrow(() -> new RuntimeException("Personagem não encontrado"));
 

@@ -17,6 +17,21 @@ public class Personagem {
 
     @OneToMany(mappedBy = "personagem", cascade = CascadeType.ALL)
     private List<Habilidade> habilidadesPersonagem = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "inventario",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id")
+    )
+    private List<Item> inventarioPersonagem = new ArrayList<>();
+
+    public List<Item> getInventarioPersonagem() {
+        return inventarioPersonagem;
+    }
+
+    public void setInventarioPersonagem(List<Item> inventarioPersonagem) {
+        this.inventarioPersonagem = inventarioPersonagem;
+    }
 
     public List<Habilidade> getHabilidadesPersonagem() {
         return habilidadesPersonagem;

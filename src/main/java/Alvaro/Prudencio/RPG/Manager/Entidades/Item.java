@@ -1,9 +1,11 @@
 package Alvaro.Prudencio.RPG.Manager.Entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
 @Table (name = "tb_itens")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,6 +15,18 @@ public class Item {
     private String tipoItem;
     private double pesoItem;
     private double custoItem;
+    @ManyToOne
+    @JoinColumn(name = "personagem_id")
+    @JsonIgnore
+    private Personagem personagem;
+
+    public Personagem getPersonagem() {
+        return personagem;
+    }
+
+    public void setPersonagem(Personagem personagem) {
+        this.personagem = personagem;
+    }
 
     public long getIdItem() {
         return idItem;
