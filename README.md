@@ -8,21 +8,31 @@ Changelog
 -Creation of the repository with the Personagem(Character) entity and it's CRUD methods
 
 17/12/2023
+
 -Creation of the Item entity and methods, all working
 
 18/12/2023
+
 -Creation of the habilidade(feats) entity and methods, all working
 -Creation of the magia(spell) entity and methods, all methods except findById are working
 
 26/12/2023
+
 -MERRY CHRISTMAS
 -Now Personagens(Characters) can have Habilidades(feats), you can add and deleting them by providing the ID of the character and the feat ID, the same logic will be used to Items and Magias(Spells)
+
+03/01/2024
+
+-HAPPY NEW YEAR
+-Implemented the Magias(Spells) now a characther can have grimoire of spells which you can add or remove spells by passing the id of character and id of the spell
+-the commits will be less common because the things i wanna do will maybe take some time to be 100% working
 
 
 TODO
 -Data persistence
--Rearrange the tables row order
 -Upgrade the Personagem entity with more methods and attributes
 -Relation between the entities
--Make a function where you can add feats and spells by name and the application will convert in ID then add
--Validate some relationships, for example a pure barbarian can't have a lv 9 spell or a wizard feat, etc
+-add the constraints
+-Make a function where you can add feats and spells by name and the application will convert into the ID then add
+-Validate some relationships, for example a pure barbarian can't have a lv 9 spell or a wizard feat, a wizard cant have a healing spell from a cleric, etc.
+-Documentation
