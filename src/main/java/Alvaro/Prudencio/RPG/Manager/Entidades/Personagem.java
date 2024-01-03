@@ -24,6 +24,21 @@ public class Personagem {
             inverseJoinColumns = @JoinColumn(name = "item_id")
     )
     private List<Item> inventarioPersonagem = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "grimorio",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "magia_id")
+    )
+    private List<Magia> grimorioPersonagem = new ArrayList<>();
+
+    public List<Magia> getGrimorioPersonagem() {
+        return grimorioPersonagem;
+    }
+
+    public void setGrimorioPersonagem(List<Magia> grimorioPersonagem) {
+        this.grimorioPersonagem = grimorioPersonagem;
+    }
 
     public List<Item> getInventarioPersonagem() {
         return inventarioPersonagem;

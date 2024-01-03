@@ -64,6 +64,5 @@ public class HabilidadePersonagemController {
         personagemRepository.save(personagem);
 
         return ResponseEntity.ok("Habilidade removida com sucesso.");
-
     }
 }

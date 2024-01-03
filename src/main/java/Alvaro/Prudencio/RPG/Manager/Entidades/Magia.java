@@ -1,6 +1,7 @@
 package Alvaro.Prudencio.RPG.Manager.Entidades;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,6 +21,18 @@ public class Magia {
     private String conjuradoresMagia; //classes que podem aprender/usar essa magia
     private boolean requerConcentracao;
     private String duracaoMagia;
+    @ManyToOne
+    @JoinColumn(name = "personagem_id")
+    @JsonIgnore
+    private Personagem personagem;
+
+    public Personagem getPersonagem() {
+        return personagem;
+    }
+
+    public void setPersonagem(Personagem personagem) {
+        this.personagem = personagem;
+    }
 
     public long getIdMagia() {
         return idMagia;
