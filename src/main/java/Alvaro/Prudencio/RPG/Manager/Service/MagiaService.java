@@ -1,6 +1,7 @@
 package Alvaro.Prudencio.RPG.Manager.Service;
 
 import Alvaro.Prudencio.RPG.Manager.Entidades.Magia;
+import Alvaro.Prudencio.RPG.Manager.Exception.NivelMagiaException;
 import Alvaro.Prudencio.RPG.Manager.Repository.MagiaRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,12 @@ public class MagiaService {
         return magiaRepository.findAll();
     }
     public Magia criarmagia(Magia novaMagia){
-        return magiaRepository.save(novaMagia);
+        try {
+            novaMagia.setNivelMagia(novaMagia.getNivelMagia());
+            return magiaRepository.save(novaMagia);
+        } catch (NivelMagiaException nivelMagiaException){
+            throw new NivelMagiaException(nivelMagiaException.getMessage());
+        }
     }
     public void apagarMagia(Long magiaApagada){
         magiaRepository.deleteById(magiaApagada);

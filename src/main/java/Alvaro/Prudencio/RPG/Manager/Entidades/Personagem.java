@@ -1,8 +1,11 @@
 package Alvaro.Prudencio.RPG.Manager.Entidades;
 
 
+import Alvaro.Prudencio.RPG.Manager.Exception.NivelPersonagemException;
 import jakarta.persistence.*;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,8 @@ public class Personagem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPersonagem;
     private String nomePersonagem;
+    @Min(value = 1, message = "Nível inválido")
+    @Max(value = 20, message = "Nível inválido")
     private int nivelPersonagem;
 
     @OneToMany(mappedBy = "personagem", cascade = CascadeType.ALL)
@@ -77,6 +82,9 @@ public class Personagem {
     }
 
     public void setNivelPersonagem(int nivelPersonagem) {
+        if (nivelPersonagem < 1 || nivelPersonagem > 20){
+            throw new NivelPersonagemException("O nível de personagem deve estar entre 1 e 20");
+        }
         this.nivelPersonagem = nivelPersonagem;
     }
 }

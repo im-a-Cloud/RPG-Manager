@@ -1,6 +1,7 @@
 package Alvaro.Prudencio.RPG.Manager.Entidades;
 
 
+import Alvaro.Prudencio.RPG.Manager.Exception.NivelMagiaException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -79,6 +80,9 @@ public class Magia {
     }
 
     public void setNivelMagia(int nivelMagia) {
+        if(nivelMagia < 0 || nivelMagia >9){
+            throw new NivelMagiaException("O nível da magia deve estar entre 0 e 9");
+        }
         this.nivelMagia = nivelMagia;
     }
 
