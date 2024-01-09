@@ -37,6 +37,7 @@ Changelog
 -Boy oh boy, constraints were way harder than i thought, but i made it, for now i only add to Nivel Magia and Personagem(Spell Level and Charachter) Spells range from 0 to 9, 0 beign cantrips, characthers range from 1 to 20, tomorrow i will add on the other entitities with numbers like Items and commit, maybe i will change the Exception handeler if my friends help me but this will take more time
 
 09/01/2024
+
 -Yeah... it took longer than i thought, some stuff happened and i was kinda stuck with the code, but i realized what was wrong(Programming is so fun XD), anyway item now have a mininum and maximum cost(0-200000 gold) and weight(0-250 kg)
 
 
