@@ -1,5 +1,8 @@
 package Alvaro.Prudencio.RPG.Manager.Entidades;
 
+import Alvaro.Prudencio.RPG.Manager.Exception.CustoItemException;
+import Alvaro.Prudencio.RPG.Manager.Exception.NivelMagiaException;
+import Alvaro.Prudencio.RPG.Manager.Exception.PesoItemException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -65,6 +68,9 @@ public class Item {
     }
 
     public void setPesoItem(double pesoItem) {
+        if(pesoItem < 0 || pesoItem >250){
+            throw new PesoItemException("O peso do item deve estar entre 0 e 250");
+        }
         this.pesoItem = pesoItem;
     }
 
@@ -73,6 +79,9 @@ public class Item {
     }
 
     public void setCustoItem(double custoItem) {
+        if (custoItem < 0 || custoItem > 200000){
+            throw new CustoItemException("O custo do item deve estar entre 0 e 200000");
+        }
         this.custoItem = custoItem;
     }
 }
