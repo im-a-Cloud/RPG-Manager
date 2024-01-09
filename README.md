@@ -36,18 +36,21 @@ Changelog
 
 -Boy oh boy, constraints were way harder than i thought, but i made it, for now i only add to Nivel Magia and Personagem(Spell Level and Charachter) Spells range from 0 to 9, 0 beign cantrips, characthers range from 1 to 20, tomorrow i will add on the other entitities with numbers like Items and commit, maybe i will change the Exception handeler if my friends help me but this will take more time
 
+09/01/2024
+-Yeah... it took longer than i thought, some stuff happened and i was kinda stuck with the code, but i realized what was wrong(Programming is so fun XD), anyway item now have a mininum and maximum cost(0-200000 gold) and weight(0-250 kg)
+
 
 TODO
--Data persistence
+-Data persistence(i kinda did it with pgAdmin but i was dumb to put my password on the properties, so yeah... i will change afterwards)
 
 -Upgrade the Personagem entity with more methods and attributes
 
--Relation between the entities
+-Relation between the entities(DONE)
 
--add the constraints
+-add the constraints(i put some but still have more to be add)
 
 -Make a function where you can add feats and spells by name and the application will convert into the ID then add
 
--Validate some relationships, for example a pure barbarian can't have a lv 9 spell or a wizard feat, a wizard cant have a healing spell from a cleric, etc.
+-Validate some relationships, for example a pure barbarian can't have a lv 9 spell or a wizard feat, a wizard cant have a healing spell from a cleric, etc.(this i will think later if this is actually needed since platforms like roll20 trust you will not do such things)
 
 -Documentation
