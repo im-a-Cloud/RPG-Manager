@@ -11,7 +11,6 @@ public class Magia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idMagia;
-
     private String nomeMagia;
     private String escolaMagia; //evocação,necromancia,etc.
     private String descricaoMagia; //dano, efeito,etc.

@@ -10,8 +10,8 @@ public class Habilidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idHabilidade;
     private String nomeHabilidade;
-    private String descricaoHabilidade;
-    private String origemHabilidade;
+    private String descricaoHabilidade; //Efeito da habilidade, quantidade de usos, etc.
+    private String origemHabilidade; //podem ser raciais, de classe, talentos ou dadas pelo mestre(outros)
     @ManyToOne
     @JoinColumn(name = "personagem_id")
     @JsonIgnore

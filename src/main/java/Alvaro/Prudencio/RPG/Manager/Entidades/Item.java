@@ -14,8 +14,8 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idItem;
     private String nomeItem;
-    private String descricaoItem;
-    private String tipoItem;
+    private String descricaoItem; //efeitos do item, dano do item, cargas(no caso de items mágicos)
+    private String tipoItem; //arma(espada, arco,etc), armadura, etc.
     private double pesoItem;
     private double custoItem;
     @ManyToOne

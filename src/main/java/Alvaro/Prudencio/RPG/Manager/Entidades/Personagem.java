@@ -16,9 +16,17 @@ public class Personagem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPersonagem;
     private String nomePersonagem;
-    @Min(value = 1, message = "Nível inválido")
-    @Max(value = 20, message = "Nível inválido")
     private int nivelPersonagem;
+    /*
+    private String racaPersonagem;
+    private int valorForca;
+    private int valorDestreza;
+    private int valorConstituicao;
+    private int valorInteligencia;
+    private int valorSabedoria;
+    private int valorCarisma;
+
+     */
 
     @OneToMany(mappedBy = "personagem", cascade = CascadeType.ALL)
     private List<Habilidade> habilidadesPersonagem = new ArrayList<>();
@@ -36,6 +44,22 @@ public class Personagem {
             inverseJoinColumns = @JoinColumn(name = "magia_id")
     )
     private List<Magia> grimorioPersonagem = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "pericias",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "pericia_id")
+    )
+    private List<Pericia> periciasPersonagem = new ArrayList<>();
+
+    public List<Pericia> getPericiasPersonagem() {
+        return periciasPersonagem;
+    }
+
+    public void setPericiasPersonagem(List<Pericia> periciasPersonagem) {
+        this.periciasPersonagem = periciasPersonagem;
+    }
 
     public List<Magia> getGrimorioPersonagem() {
         return grimorioPersonagem;

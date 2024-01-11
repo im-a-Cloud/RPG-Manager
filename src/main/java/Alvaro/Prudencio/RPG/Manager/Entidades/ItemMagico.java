@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "tb_itens_magicos")
 public class ItemMagico extends Item {
-    private String raridadeItem;
+    private String raridadeItem; //comum, incomum, raro, épico, lendário.
     private boolean precisaSintonizacao;
 
     public String getRaridadeItem() {
