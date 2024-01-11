@@ -40,6 +40,10 @@ Changelog
 
 -Yeah... it took longer than i thought, some stuff happened and i was kinda stuck with the code, but i realized what was wrong(Programming is so fun XD), anyway item now have a mininum and maximum cost(0-200000 gold) and weight(0-250 kg)
 
+11/01/2024
+
+-Did you ever in the middle of doing something you realized, hey... i should have done other thing before this, well this happened today and while i was doing the attributes of Personagem i remembred that i didn't make the Pericias(Skills), so i did then, you can create and add by passing the name and the key attribute, for now i will assume the only skills displayed on the characther are the trained for the sake of better viewing
+
 
 TODO
 -Data persistence(i kinda did it with pgAdmin but i was dumb and put my password on the pgAdmin, so yeah... i will change afterwards)
@@ -53,5 +57,7 @@ TODO
 -Make a function where you can add feats and spells by name and the application will convert into the ID then add
 
 -Validate some relationships, for example a pure barbarian can't have a lv 9 spell or a wizard feat, a wizard cant have a healing spell from a cleric, etc.(this i will think later if this is actually needed since platforms like roll20 trust you will not do such things)
+
+-Create a function to calculate the total bonus to the skill checks
 
 -Documentation
