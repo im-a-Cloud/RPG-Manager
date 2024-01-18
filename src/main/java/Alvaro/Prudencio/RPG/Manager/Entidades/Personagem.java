@@ -2,12 +2,14 @@ package Alvaro.Prudencio.RPG.Manager.Entidades;
 
 
 import Alvaro.Prudencio.RPG.Manager.Exception.NivelPersonagemException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.Math;
 
 @Entity
 @Table (name = "tb_Personagem")
@@ -17,17 +19,149 @@ public class Personagem {
     private long idPersonagem;
     private String nomePersonagem;
     private int nivelPersonagem;
-    /*
     private String racaPersonagem;
+
     private int valorForca;
+
+    private int valorBonusForca;
     private int valorDestreza;
+    private int valorBonusDestreza;
     private int valorConstituicao;
+    private int valorBonusConstituicao;
     private int valorInteligencia;
+    private int valorBonusInteligencia;
     private int valorSabedoria;
+    private int valorBonusSabedoria;
     private int valorCarisma;
+    private int valorBonusCarisma;
+    private int bonusProficiencia;
 
-     */
+    public void setValorBonusForca(int valorBonusForca) {
+        this.valorBonusForca = valorBonusForca;
+    }
 
+    public void setValorBonusDestreza(int valorBonusDestreza) {
+        this.valorBonusDestreza = valorBonusDestreza;
+    }
+
+    public void setValorBonusConstituicao(int valorBonusConstituicao) {
+        this.valorBonusConstituicao = valorBonusConstituicao;
+    }
+
+    public void setValorBonusInteligencia(int valorBonusInteligencia) {
+        this.valorBonusInteligencia = valorBonusInteligencia;
+    }
+
+    public void setValorBonusSabedoria(int valorBonusSabedoria) {
+        this.valorBonusSabedoria = valorBonusSabedoria;
+    }
+
+    public void setValorBonusCarisma(int valorBonusCarisma) {
+        this.valorBonusCarisma = valorBonusCarisma;
+    }
+
+    public void setBonusProficiencia(int bonusProficiencia) {
+        this.bonusProficiencia = bonusProficiencia;
+    }
+
+    public int getValorBonusDestreza() {
+        return valorBonusDestreza;
+    }
+
+    public int getValorBonusConstituicao() {
+        return valorBonusConstituicao;
+    }
+
+    public int getValorBonusInteligencia() {
+        return valorBonusInteligencia;
+    }
+
+    public int getValorBonusSabedoria() {
+        return valorBonusSabedoria;
+    }
+
+    public int getValorBonusCarisma() {
+        return valorBonusCarisma;
+    }
+
+    public int getValorDestreza() {
+        return valorDestreza;
+    }
+
+    public void setValorDestreza(int valorDestreza) {
+        this.valorDestreza = valorDestreza;
+    }
+
+    public int getValorConstituicao() {
+        return valorConstituicao;
+    }
+
+    public void setValorConstituicao(int valorConstituicao) {
+        this.valorConstituicao = valorConstituicao;
+    }
+
+    public int getValorInteligencia() {
+        return valorInteligencia;
+    }
+
+    public void setValorInteligencia(int valorInteligencia) {
+        this.valorInteligencia = valorInteligencia;
+    }
+
+    public int getValorSabedoria() {
+        return valorSabedoria;
+    }
+
+    public void setValorSabedoria(int valorSabedoria) {
+        this.valorSabedoria = valorSabedoria;
+    }
+
+    public int getValorCarisma() {
+        return valorCarisma;
+    }
+
+    public void setValorCarisma(int valorCarisma) {
+        this.valorCarisma = valorCarisma;
+    }
+
+    public String getRacaPersonagem() {
+        return racaPersonagem;
+    }
+
+    public void setRacaPersonagem(String racaPersonagem) {
+        this.racaPersonagem = racaPersonagem;
+    }
+
+    public int getValorBonusForca() {
+        return valorBonusForca;
+    }
+
+    public int getBonusProficiencia() {
+        return bonusProficiencia;
+    }
+    public int getValorForca() {
+        return valorForca;
+    }
+
+    public void setValorForca(int valorForca) {
+        this.valorForca = valorForca;
+    }
+
+    public void calcularBonusProficiencia(){
+        this.bonusProficiencia = (int) (Math.ceil(nivelPersonagem/4)) +2;
+    }
+    public void enviarBonusAtributo(){
+        this.valorBonusForca = calcularBonusAtributo(valorForca);
+        this.valorBonusConstituicao = calcularBonusAtributo(valorConstituicao);
+        this.valorBonusDestreza = calcularBonusAtributo(valorDestreza);
+        this.valorBonusInteligencia = calcularBonusAtributo(valorInteligencia);
+        this.valorBonusSabedoria = calcularBonusAtributo(valorSabedoria);
+        this.valorBonusCarisma = calcularBonusAtributo(valorCarisma);
+    }
+
+    public int calcularBonusAtributo(int valorAtributo){
+        return (int)(Math.ceil(valorAtributo -10)/2);
+    }
     @OneToMany(mappedBy = "personagem", cascade = CascadeType.ALL)
     private List<Habilidade> habilidadesPersonagem = new ArrayList<>();
     @ManyToMany
@@ -110,5 +244,7 @@ public class Personagem {
             throw new NivelPersonagemException("O nível de personagem deve estar entre 1 e 20");
         }
         this.nivelPersonagem = nivelPersonagem;
+        calcularBonusProficiencia();
+        enviarBonusAtributo();
     }
 }
