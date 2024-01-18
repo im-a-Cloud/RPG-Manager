@@ -44,12 +44,17 @@ Changelog
 
 -Did you ever in the middle of doing something you realized, hey... i should have done other thing before this, well this happened today and while i was doing the attributes of Personagem i remembred that i didn't make the Pericias(Skills), so i did then, you can create and add by passing the name and the key attribute, for now i will assume the only skills displayed on the characther are the trained for the sake of better viewing
 
+17/01/2024
+
+-I updated the app yesterday but i was too tired to make the README, anyway, now a characther have proficiency bonus and attributes, proficiency is calculated based in the level by the own app.
+-Attribute bonuses are calculated based on the value, for now i didnt make a constraint for the min and max value, im trying to make a more generic since i dont want to make 6 times the same code, also did you know you there's no limitation in the roll20 app for the max value on a attribute? but gods and stuff like that have a maximum of 30?
+
 
 TODO
 
 -Data persistence(i kinda did it with pgAdmin but i was dumb and put my password on the pgAdmin, so yeah... i will change afterwards)
 
--Upgrade the Personagem entity with more methods and attributes
+-Upgrade the Personagem entity with more methods and attributes(Partially done)
 
 -Relation between the entities(DONE)
 
