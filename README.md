@@ -47,6 +47,7 @@ Changelog
 17/01/2024
 
 -I updated the app yesterday but i was too tired to make the README, anyway, now a characther have proficiency bonus and attributes, proficiency is calculated based in the level by the own app.
+
 -Attribute bonuses are calculated based on the value, for now i didnt make a constraint for the min and max value, im trying to make a more generic since i dont want to make 6 times the same code, also did you know you there's no limitation in the roll20 app for the max value on a attribute? but gods and stuff like that have a maximum of 30?
 
 
