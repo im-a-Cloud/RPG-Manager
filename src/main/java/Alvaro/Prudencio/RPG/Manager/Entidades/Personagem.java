@@ -41,6 +41,11 @@ public class Personagem {
 
     private int bonusProficiencia;
 
+    @ManyToOne
+    @JoinColumn(name = "classe_id")
+    @JsonIgnore
+    private Classe classePersonagem;
+
     public void setValorBonusForca(int valorBonusForca) {
         this.valorBonusForca = valorBonusForca;
     }
@@ -262,5 +267,20 @@ public class Personagem {
         this.nivelPersonagem = nivelPersonagem;
         calcularBonusProficiencia();
         enviarBonusAtributo();
+    }
+    public Classe getClassePersonagem() {
+        return classePersonagem;
+    }
+
+    public void setClassePersonagem(Classe classePersonagem) {
+        this.classePersonagem = classePersonagem;
+    }
+
+    public void setClassesPersonagem(List<Classe> classesPersonagem) {
+        this.classesPersonagem = classesPersonagem;
+    }
+    @JsonIgnore
+    public String getNomeClassePersonagem(){
+        return classePersonagem.getNomeClasse();
     }
 }

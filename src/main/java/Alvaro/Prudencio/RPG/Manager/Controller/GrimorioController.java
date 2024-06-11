@@ -35,6 +35,10 @@ public class GrimorioController {
         if (magia.getPersonagem() != null){
             return ResponseEntity.badRequest().body("O personagem já possui essa magia");
         }
+        String classePersonagem = personagem.getNomeClassePersonagem();
+        if (!magia.getConjuradoresMagia().contains(classePersonagem)){
+            return ResponseEntity.badRequest().body("O personagem não é da classe/subclasse que pode aprender essa magia");
+        }
         magia.setPersonagem(personagem);
         magiaRepository.save(magia);
 

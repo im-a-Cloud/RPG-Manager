@@ -32,12 +32,10 @@ public class ClassePersonagemController {
                 .orElseThrow(() -> new RuntimeException("Personagem não encontrado"));
         Classe classe = classeRepository.findById(idClasse)
                 .orElseThrow(() -> new RuntimeException("Classe não encontrada"));
-        if (classe.getPersonagem() != null) {
-            return ResponseEntity.badRequest().body("O personagem já possui essa Classe");
+        if (personagem.getClassePersonagem() != null) {
+            return ResponseEntity.badRequest().body("O personagem já possui uma classe(depois eu farei multiclasse, confia)");
         }
-        classe.setPersonagem(personagem);
-        classeRepository.save(classe);
-
+        personagem.setClassePersonagem(classe);
         personagem.getClassesPersonagem().add(classe);
         personagemRepository.save(personagem);
 

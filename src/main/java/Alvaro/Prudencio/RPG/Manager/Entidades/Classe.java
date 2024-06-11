@@ -11,21 +11,13 @@ public class Classe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idClasse;
     private String nomeClasse;
+    private String nomeSubClasse;
     private int dadoDeVida;
     private String profTestesDeResistencia;
-
-    @ManyToOne
-    @JoinColumn(name = "personagem_id")
-    @JsonIgnore
-    private Personagem personagem;
-
-    public Personagem getPersonagem() {
-        return personagem;
-    }
-
-    public void setPersonagem(Personagem personagem) {
-        this.personagem = personagem;
-    }
+    private String profArmas;
+    private String profArmaduras;
+    private String profFerramentas;
+    private String periciasIniciais;
 
     public long getIdClasse() {
         return idClasse;
@@ -57,5 +49,45 @@ public class Classe {
 
     public void setProfTestesDeResistencia(String profTestesDeResistencia) {
         this.profTestesDeResistencia = profTestesDeResistencia;
+    }
+
+    public String getProfArmas() {
+        return profArmas;
+    }
+
+    public void setProfArmas(String profArmas) {
+        this.profArmas = profArmas;
+    }
+
+    public String getProfArmaduras() {
+        return profArmaduras;
+    }
+
+    public void setProfArmaduras(String profArmaduras) {
+        this.profArmaduras = profArmaduras;
+    }
+
+    public String getProfFerramentas() {
+        return profFerramentas;
+    }
+
+    public void setProfFerramentas(String profFerramentas) {
+        this.profFerramentas = profFerramentas;
+    }
+
+    public String getPericiasIniciais() {
+        return periciasIniciais;
+    }
+
+    public void setPericiasIniciais(String periciasIniciais) {
+        this.periciasIniciais = periciasIniciais;
+    }
+
+    public String getNomeSubClasse() {
+        return nomeSubClasse;
+    }
+
+    public void setNomeSubClasse(String nomeSubClasse) {
+        this.nomeSubClasse = nomeSubClasse;
     }
 }
