@@ -17,7 +17,7 @@ public class HabilidadeController {
     }
     @GetMapping
     public List<Habilidade> listarHabilidades(){
-        return habilidadeService.lisarHabilidades();
+        return habilidadeService.listarHabilidades();
     }
     @PostMapping
     public Habilidade criarHabilidade(@RequestBody Habilidade novaHabilidade){

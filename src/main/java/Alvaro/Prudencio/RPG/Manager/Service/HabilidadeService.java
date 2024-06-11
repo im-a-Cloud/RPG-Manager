@@ -13,7 +13,7 @@ public class HabilidadeService {
     private HabilidadeService(HabilidadeRepository habilidadeRepository){
         this.habilidadeRepository = habilidadeRepository;
     }
-    public List<Habilidade> lisarHabilidades() {
+    public List<Habilidade> listarHabilidades() {
         return habilidadeRepository.findAll();
     }
     public Habilidade criarHabilidade(Habilidade novaHabilidade){

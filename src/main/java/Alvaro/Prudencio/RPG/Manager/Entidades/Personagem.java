@@ -22,18 +22,23 @@ public class Personagem {
     private String racaPersonagem;
 
     private int valorForca;
-
     private int valorBonusForca;
+
     private int valorDestreza;
     private int valorBonusDestreza;
+
     private int valorConstituicao;
     private int valorBonusConstituicao;
+
     private int valorInteligencia;
     private int valorBonusInteligencia;
+
     private int valorSabedoria;
     private int valorBonusSabedoria;
+
     private int valorCarisma;
     private int valorBonusCarisma;
+
     private int bonusProficiencia;
 
     public void setValorBonusForca(int valorBonusForca) {
@@ -193,6 +198,17 @@ public class Personagem {
 
     public void setPericiasPersonagem(List<Pericia> periciasPersonagem) {
         this.periciasPersonagem = periciasPersonagem;
+    }
+    @ManyToMany
+    @JoinTable(
+            name = "classe",
+            joinColumns = @JoinColumn(name = "personagem_id"),
+            inverseJoinColumns = @JoinColumn(name = "classe_id")
+    )
+    private List<Classe> classesPersonagem = new ArrayList<>();
+
+    public List<Classe> getClassesPersonagem(){
+        return classesPersonagem;
     }
 
     public List<Magia> getGrimorioPersonagem() {
