@@ -283,4 +283,8 @@ public class Personagem {
     public String getNomeClassePersonagem(){
         return classePersonagem.getNomeClasse();
     }
+    @JsonIgnore
+    public String getNomeSubClassePersonagem(){
+        return classePersonagem.getNomeSubClasse();
+    }
 }
