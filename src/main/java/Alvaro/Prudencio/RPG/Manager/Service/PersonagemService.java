@@ -3,13 +3,14 @@ package Alvaro.Prudencio.RPG.Manager.Service;
 import Alvaro.Prudencio.RPG.Manager.Entidades.Personagem;
 import Alvaro.Prudencio.RPG.Manager.Exception.NivelPersonagemException;
 import Alvaro.Prudencio.RPG.Manager.Repository.PersonagemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class PersonagemService {
     private final PersonagemRepository personagemRepository;
-
+    @Autowired
     public PersonagemService(PersonagemRepository personagemRepository){
         this.personagemRepository = personagemRepository;
     }

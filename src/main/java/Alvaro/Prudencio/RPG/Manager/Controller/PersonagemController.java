@@ -40,8 +40,9 @@ public class PersonagemController {
         return personagemService.atualizarPersonagem(id, personagem);
     }
     @DeleteMapping("/{id}")
-    public void apagarPersonagem(@PathVariable Long idPersonagem){
-        personagemService.apagarPersonagem(idPersonagem);
+    public ResponseEntity<String> apagarPersonagem(@PathVariable Long id){
+        personagemService.apagarPersonagem(id);
+        return ResponseEntity.ok("Personagem apagado com sucesso");
     }
     @GetMapping("/{id}")
     public Personagem buscarPersonagemPorId(@PathVariable Long id){
