@@ -53,7 +53,7 @@ Changelog
 
 TODO
 
--Data persistence(i kinda did it with pgAdmin but i was dumb and put my password on the pgAdmin, so yeah... i will change afterwards)
+-Data persistence(Done)
 
 -Upgrade the Personagem entity with more methods and attributes(Partially done)
 
