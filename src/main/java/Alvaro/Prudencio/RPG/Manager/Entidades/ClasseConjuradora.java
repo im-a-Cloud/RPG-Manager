@@ -13,6 +13,22 @@ public class ClasseConjuradora extends Classe{
     private int modAtaqueMagico;
     private int truquesConhecidos;
     private int nivelMagiaMaximo;
+    private boolean conjuradorCompleto = true;
+
+    public boolean isConjuradorCompleto() {
+        return conjuradorCompleto;
+    }
+
+    public void setConjuradorCompleto(boolean conjuradorCompleto) {
+        this.conjuradorCompleto = conjuradorCompleto;
+    }
+    public Personagem getPersonagem() {
+        return personagem;
+    }
+
+    public void setPersonagem(Personagem personagem) {
+        this.personagem = personagem;
+    }
 
     @ManyToOne // Ou @OneToOne, dependendo da sua modelagem
     @JoinColumn(name = "personagem_id")

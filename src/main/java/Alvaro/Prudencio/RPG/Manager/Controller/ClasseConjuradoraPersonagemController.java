@@ -31,8 +31,20 @@ public class ClasseConjuradoraPersonagemController {
             return ResponseEntity.badRequest().body("O personagem já possui uma classe(depois eu farei multiclasse, confia)");
         }
 
-        classeConjuradora.setNivelMagiaMaximo((int) Math.ceil(personagem.getNivelPersonagem() / 2.0));
-        classeConjuradora.setModAtaqueMagico(personagem.getBonusProficiencia() + personagem.getValorBonusInteligencia());
+        if (classeConjuradora.isConjuradorCompleto()) {
+            classeConjuradora.setNivelMagiaMaximo((int) Math.ceil(personagem.getNivelPersonagem() / 2.0));
+        }else {
+            classeConjuradora.setNivelMagiaMaximo((int) Math.ceil(personagem.getNivelPersonagem() / 4.0));
+        }
+        if (classeConjuradora.getAtributoConjuracao().equalsIgnoreCase("inteligência")) {
+            classeConjuradora.setModAtaqueMagico(personagem.getBonusProficiencia() + personagem.getValorBonusInteligencia());
+        }
+        if (classeConjuradora.getAtributoConjuracao().equalsIgnoreCase("carisma")) {
+            classeConjuradora.setModAtaqueMagico(personagem.getBonusProficiencia() + personagem.getValorBonusCarisma());
+        }
+        if (classeConjuradora.getAtributoConjuracao().equalsIgnoreCase("sabedoria")) {
+            classeConjuradora.setModAtaqueMagico(personagem.getBonusProficiencia() + personagem.getValorBonusSabedoria());
+        }
         classeConjuradora.setSalvamentoDC(classeConjuradora.getModAtaqueMagico() + 8);
         personagem.setClassePersonagem(classeConjuradora);
         personagem.getClassesPersonagem().add(classeConjuradora);
