@@ -12,7 +12,7 @@ public class ClasseConjuradora extends Classe{
     private int salvamentoDC;
     private int modAtaqueMagico;
     private int truquesConhecidos;
-    private int nivelMagiaMaximo;
+    private int nivelMagiaMaximo = 0;
     private boolean conjuradorCompleto = true;
 
     public boolean isConjuradorCompleto() {
@@ -22,10 +22,11 @@ public class ClasseConjuradora extends Classe{
     public void setConjuradorCompleto(boolean conjuradorCompleto) {
         this.conjuradorCompleto = conjuradorCompleto;
     }
+    @JsonIgnore
     public Personagem getPersonagem() {
         return personagem;
     }
-
+    @JsonIgnore
     public void setPersonagem(Personagem personagem) {
         this.personagem = personagem;
     }

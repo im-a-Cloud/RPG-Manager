@@ -27,7 +27,7 @@ public class ClassePersonagemController {
         return ResponseEntity.ok(classesPersonagem);
     }
     @PostMapping("/adicionar/{idClasse}")
-    public ResponseEntity<String> adicionarHabilidade(@PathVariable Long idPersonagem, @PathVariable Long idClasse) {
+    public ResponseEntity<String> adicionarClasse(@PathVariable Long idPersonagem, @PathVariable Long idClasse) {
         Personagem personagem = personagemRepository.findById(idPersonagem)
                 .orElseThrow(() -> new RuntimeException("Personagem não encontrado"));
         Classe classe = classeRepository.findById(idClasse)

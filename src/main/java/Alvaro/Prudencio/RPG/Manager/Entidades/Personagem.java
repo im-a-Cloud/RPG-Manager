@@ -45,6 +45,10 @@ public class Personagem {
     @JoinColumn(name = "classe_id")
     @JsonIgnore
     private Classe classePersonagem;
+    @ManyToOne
+    @JoinColumn(name = "classe_conjuradora_id")  // Nome da coluna no banco de dados
+    @JsonIgnore
+    private ClasseConjuradora classeConjuradoraPersonagem;
 
     public void setValorBonusForca(int valorBonusForca) {
         this.valorBonusForca = valorBonusForca;
@@ -268,14 +272,21 @@ public class Personagem {
         calcularBonusProficiencia();
         enviarBonusAtributo();
     }
+    @JsonIgnore
     public Classe getClassePersonagem() {
         return classePersonagem;
     }
-
+    @JsonIgnore
+    public ClasseConjuradora getClasseConjuradoraPersonagem() {
+        return classeConjuradoraPersonagem;
+    }
+    @JsonIgnore
     public void setClassePersonagem(Classe classePersonagem) {
         this.classePersonagem = classePersonagem;
     }
-
+    public void setClasseConjuradoraPersonagem(ClasseConjuradora classeConjuradoraPersonagem) {
+        this.classeConjuradoraPersonagem= classeConjuradoraPersonagem;
+    }
     public void setClassesPersonagem(List<Classe> classesPersonagem) {
         this.classesPersonagem = classesPersonagem;
     }
@@ -286,5 +297,22 @@ public class Personagem {
     @JsonIgnore
     public String getNomeSubClassePersonagem(){
         return classePersonagem.getNomeSubClasse();
+    }
+    @JsonIgnore
+    public String getNomeClasseConjuradoraPersonagem(){
+        return classeConjuradoraPersonagem.getNomeClasse();
+    }
+    @JsonIgnore
+    public String getNomeSubClasseConjuradoraPersonagem(){
+        return classeConjuradoraPersonagem.getNomeSubClasse();
+    }
+    @JsonIgnore
+    public int getNivelMagiaMaximoPersonagem() {
+        if (classeConjuradoraPersonagem != null) {
+            return classeConjuradoraPersonagem.getNivelMagiaMaximo();
+        } else {
+            // Retornar um valor padrão ou lidar com o caso onde a classeConjuradoraPersonagem é null
+            return -1;  // Ou outro valor padrão apropriado
+        }
     }
 }

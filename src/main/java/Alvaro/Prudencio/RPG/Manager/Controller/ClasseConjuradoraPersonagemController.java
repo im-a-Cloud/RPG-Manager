@@ -46,10 +46,9 @@ public class ClasseConjuradoraPersonagemController {
             classeConjuradora.setModAtaqueMagico(personagem.getBonusProficiencia() + personagem.getValorBonusSabedoria());
         }
         classeConjuradora.setSalvamentoDC(classeConjuradora.getModAtaqueMagico() + 8);
-        personagem.setClassePersonagem(classeConjuradora);
+        personagem.setClasseConjuradoraPersonagem(classeConjuradora);
         personagem.getClassesPersonagem().add(classeConjuradora);
         personagemRepository.save(personagem);
-
         return ResponseEntity.ok("Classe conjuradora adicionada ao personagem com sucesso.");
     }
 }

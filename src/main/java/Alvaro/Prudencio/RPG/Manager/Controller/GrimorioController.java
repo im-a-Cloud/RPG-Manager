@@ -1,7 +1,9 @@
 package Alvaro.Prudencio.RPG.Manager.Controller;
 
+import Alvaro.Prudencio.RPG.Manager.Entidades.ClasseConjuradora;
 import Alvaro.Prudencio.RPG.Manager.Entidades.Magia;
 import Alvaro.Prudencio.RPG.Manager.Entidades.Personagem;
+import Alvaro.Prudencio.RPG.Manager.Repository.ClasseConjuradoraRepository;
 import Alvaro.Prudencio.RPG.Manager.Repository.MagiaRepository;
 import Alvaro.Prudencio.RPG.Manager.Repository.PersonagemRepository;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +16,12 @@ import java.util.List;
 public class GrimorioController {
     private PersonagemRepository personagemRepository;
     private MagiaRepository magiaRepository;
+    private ClasseConjuradoraRepository classeConjuradoraRepository;
 
-    private GrimorioController(PersonagemRepository personagemRepository, MagiaRepository magiaRepository){
+    private GrimorioController(PersonagemRepository personagemRepository, MagiaRepository magiaRepository, ClasseConjuradoraRepository classeConjuradoraRepository){
         this.personagemRepository = personagemRepository;
         this.magiaRepository = magiaRepository;
+        this.classeConjuradoraRepository = classeConjuradoraRepository;
     }
     @GetMapping
     public ResponseEntity<List<Magia>> listarMagiasPersonagem(@PathVariable Long idPersonagem){
@@ -35,10 +39,17 @@ public class GrimorioController {
         if (magia.getPersonagem() != null){
             return ResponseEntity.badRequest().body("O personagem já possui essa magia");
         }
-        String classePersonagem = personagem.getNomeClassePersonagem();
-        String subClassePersonagem = personagem.getNomeSubClassePersonagem();
-        if (!magia.getConjuradoresMagia().contains(classePersonagem)||!(magia.getConjuradoresMagia().contains(subClassePersonagem))){
+        String classePersonagem = personagem.getNomeClasseConjuradoraPersonagem().toUpperCase();
+        String subClassePersonagem = personagem.getNomeSubClasseConjuradoraPersonagem().toUpperCase();
+        int nivelMaximoMagiaPersonagem = personagem.getNivelMagiaMaximoPersonagem();
+        System.out.println(nivelMaximoMagiaPersonagem);
+
+        if (!magia.getConjuradoresMagia().toUpperCase().contains(classePersonagem)){
             return ResponseEntity.badRequest().body("O personagem não é da classe/subclasse que pode aprender essa magia");
+        }
+
+        if (magia.getNivelMagia() > nivelMaximoMagiaPersonagem) {
+            return ResponseEntity.badRequest().body("O nível do personagem é muito baixo para poder aprender essa magia");
         }
         magia.setPersonagem(personagem);
         magiaRepository.save(magia);
