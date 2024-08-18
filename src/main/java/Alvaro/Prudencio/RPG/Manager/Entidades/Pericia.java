@@ -15,6 +15,8 @@ public class Pericia {
 
     private String atributoPericia; // atributo correspondente a pericia, por exemplo a pericia arcanismo usa o atributo inteligencia
 
+    private int valorTotalPericia;
+
     @ManyToOne
     @JoinColumn(name = "personagem_id")
     @JsonIgnore
@@ -43,6 +45,15 @@ public class Pericia {
     public void setAtributoPericia(String atributoPericia) {
         this.atributoPericia = atributoPericia;
     }
+
+    public int getValorTotalPericia() {
+        return valorTotalPericia;
+    }
+
+    public void setValorTotalPericia(int valorTotalPericia) {
+        this.valorTotalPericia = valorTotalPericia;
+    }
+
     public Personagem getPersonagem() {
         return personagem;
     }

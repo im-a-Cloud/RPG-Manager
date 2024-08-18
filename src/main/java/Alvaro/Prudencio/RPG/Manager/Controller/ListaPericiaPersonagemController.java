@@ -28,6 +28,28 @@ public class ListaPericiaPersonagemController {
         if (pericia.getPersonagem() != null) {
             return ResponseEntity.badRequest().body("O personagem já possui essa pericia");
         }
+
+        int auxProfPersonagem = personagem.getBonusProficiencia();
+
+        switch (pericia.getAtributoPericia().toLowerCase()) {
+            case "força":
+                pericia.setValorTotalPericia(auxProfPersonagem + personagem.getValorBonusForca());
+                break;
+            case "destreza":
+                pericia.setValorTotalPericia(auxProfPersonagem + personagem.getValorBonusDestreza());
+                break;
+            case "inteligência":
+                pericia.setValorTotalPericia(auxProfPersonagem + personagem.getValorBonusInteligencia());
+                break;
+            case "sabedoria":
+                pericia.setValorTotalPericia(auxProfPersonagem + personagem.getValorBonusSabedoria());
+                break;
+            case "carisma":
+                pericia.setValorTotalPericia(auxProfPersonagem + personagem.getValorBonusCarisma());
+                break;
+            default:
+                return ResponseEntity.badRequest().body("Erro ao adicionar pericia");
+        }
         pericia.setPersonagem(personagem);
         periciaRepository.save(pericia);
 
