@@ -63,6 +63,8 @@ TODO
 
 -Make a function where you can add feats and spells by name and the application will convert into the ID then add
 
+-Autentication and user
+
 -Validate some relationships, for example a pure barbarian can't have a lv 9 spell or a wizard feat, a wizard cant have a healing spell from a cleric, etc.(this i will think later if this is actually needed since platforms like roll20 trust you will not do such things)
 
 -Create a function to calculate the total bonus to the skill checks
